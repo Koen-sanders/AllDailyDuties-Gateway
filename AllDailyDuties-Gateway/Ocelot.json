@@ -6,10 +6,26 @@
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 7057
+          "Port": 9000
         }
       ],
       "UpstreamPathTemplate": "/identity/users",
+      "UpstreamPathMethod": [ "Get", "Post" ]
+    },
+    {
+      "DownstreamPathTemplate": "/User/verifyLogin",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 9000
+        }
+      ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      },
+      "UpstreamPathTemplate": "/identity/verify",
       "UpstreamPathMethod": [ "Get", "Post" ]
     },
     {
@@ -18,7 +34,7 @@
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 7261
+          "Port": 9001
         }
       ],
       "UpstreamPathTemplate": "/api/tasks",
@@ -30,7 +46,7 @@
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 7261
+          "Port": 9001
         }
       ],
       "UpstreamPathTemplate": "/api/tasks/{id}",
